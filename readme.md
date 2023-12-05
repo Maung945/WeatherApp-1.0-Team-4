@@ -1,4 +1,4 @@
-w#### Weather App | Open Weather Api | Retrofit & Kotlin Coroutines | FusedLocation 
+#### Weather App | Open Weather Api | Retrofit & Kotlin Coroutines | FusedLocation 
 
 #### API Call is 5 Days/3 hours Forecast 
 

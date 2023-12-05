@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var pollutionFragment: PollutionFragment
 
-    private var city: String = "new york"
+    private var city: String = "Pomona"
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity() {
             val response = try {
                 RetrofitInstance.api.getForecast(
                     city,
-                    "metric",
+                    "imperial",
                     applicationContext.getString(R.string.api_key)
                 )
             } catch (e: IOException) {
@@ -186,7 +186,7 @@ class MainActivity : AppCompatActivity() {
             val response = try {
                 RetrofitInstance.api.getCurrentWeather(
                     city,
-                    "metric",
+                    "imperial",
                     applicationContext.getString(R.string.api_key)
                 )
             } catch (e: IOException) {
@@ -224,10 +224,10 @@ class MainActivity : AppCompatActivity() {
                         tvStatus.text = data.weather[0].description
                         tvWind.text = "${data.wind.speed} KM/H"
                         tvLocation.text = "${data.name}\n${data.sys.country}"
-                        tvTemp.text = "${data.main.temp.toInt()}°C"
-                        tvFeelsLike.text = "Feels like: ${data.main.feels_like.toInt()}°C"
-                        tvMinTemp.text = "Min temp: ${data.main.temp_min.toInt()}°C"
-                        tvMaxTemp.text = "Max temp: ${data.main.temp_max.toInt()}°C"
+                        tvTemp.text = "${data.main.temp.toInt()}°F"
+                        tvFeelsLike.text = "Feels like: ${data.main.feels_like.toInt()}°F"
+                        tvMinTemp.text = "Min temp: ${data.main.temp_min.toInt()}°F"
+                        tvMaxTemp.text = "|Max temp: ${data.main.temp_max.toInt()}°F"
                         tvHumidity.text = "${data.main.humidity} %"
                         tvPressure.text = "${data.main.pressure} hPa"
                         tvUpdateTime.text = "Last Update: ${
@@ -251,7 +251,7 @@ class MainActivity : AppCompatActivity() {
                 RetrofitInstance.api.getPollution(
                     lat,
                     lon,
-                    "metric",
+                    "imperial",
                     applicationContext.getString(R.string.api_key)
                 )
             } catch (e: IOException) {

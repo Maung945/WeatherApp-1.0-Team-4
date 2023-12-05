@@ -28,7 +28,7 @@ class RvAdapter( private val forecastArray: ArrayList<ForecastData>) : RecyclerV
 
             Picasso.get().load(imageUrl).into(imgItem)
 
-            tvItemTemp.text = "${currentItem.main.temp.toInt()} °C"
+            tvItemTemp.text = "${currentItem.main.temp.toInt()} °F"
             tvItemStatus.text = "${currentItem.weather[0].description}"
             tvItemTime.text = displayTime(currentItem.dt_txt)
 
